@@ -1,11 +1,16 @@
 # Packer encrypt copy
 
-This will be useful if
+## This will be useful if:
 - You can't copy images that are public (aws limitation)
 - You can't copy images between accounts that are encrypted (aws limitation)
 - You don't mind your origin image being unencrypted
 - You want your running images with your actual data to be encrypted
 
+## What happens:
+- packer brings up an ec2 instance with the AMI in the destination account
+- packer makes an unencrypted AMI from that
+- packer makes an encrypted copy from that AMI
+- packer destroys the unencrypted AMI
 
 ## Usage:
 
@@ -35,3 +40,8 @@ docker run \
       event: push
       branch: master
 ```
+
+## Improvements
+- [ ] allow `instance_type` to be configurable
+- [ ] skip temp ssh key pair creation
+- [ ] skip temp security group creation
