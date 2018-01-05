@@ -11,8 +11,6 @@ RUN apk add --no-cache --virtual .run-deps \
     && adduser -D packer
 
 USER packer
-ENV USER=packer
-ENV HOME=/home/packer
 WORKDIR /home/packer
 COPY packer.json .
 COPY build.sh .
