@@ -3,8 +3,8 @@
 This will be useful if
 - You can't copy images that are public (aws limitation)
 - You can't copy images between accounts that are encrypted (aws limitation)
-- You don't mind your origin image being open
-- 
+- You don't mind your origin image being unencrypted
+- You want your running images with your actual data to be encrypted
 
 
 ## Usage:
