@@ -1,0 +1,22 @@
+{
+  "variables": {
+    "access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+    "secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+    "source_ami": "{{env `ami_id`}}",
+    "ami_name": "{{env `ami_name`}}",
+    "region": "{{env `region`}}"
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "communicator": "none",
+      "access_key": "{{user `access_key`}}",
+      "secret_key": "{{user `secret_key`}}",
+      "region": "{{user `region`}}",
+      "source_ami": "{{user `source_ami`}}",
+      "instance_type": "t2.micro",
+      "encrypt_boot": true,
+      "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}"
+    }
+  ]
+}
