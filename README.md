@@ -22,11 +22,11 @@
 ### Docker
 ```bash
 docker run \
+  --rm \
   -e region=eu-west-2 \
   -e aws_id=... \
   -e aws_key=... \
   -e filters="--owner 000000 --filters "Name=name,Values=something*"" \
-  -e 
   chrisns/packer-encrypt-copy
 ```
 
