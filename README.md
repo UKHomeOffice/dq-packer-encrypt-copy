@@ -38,8 +38,8 @@ docker run \
     commands:
       - export region=eu-west-2
       - export filters="--owner 000000 --filters "Name=name,Values=something*""
-      - export aws_id=${notprod_id}
-      - export aws_key=${notprod_key}
+      - export aws_id=$${notprod_id}
+      - export aws_key=$${notprod_key}
       - ./build.sh
     when:
       event: push
