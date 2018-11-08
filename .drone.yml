@@ -1,0 +1,9 @@
+pipeline:
+
+  build:
+    image: ukhomeoffice/drone-docker
+    repo: quay.io/ukhomeofficedigital/dq-packer-encrypt-copy
+    secrets: [ docker_username, docker_password ]
+    registry: quay.io
+    when:
+      event: push
