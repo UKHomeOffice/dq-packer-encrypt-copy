@@ -12,7 +12,6 @@
 - packer makes an unencrypted AMI from that
 - packer makes an encrypted copy from that AMI
 - packer destroys the unencrypted AMI
-- ~~new AMI in the destination account with a name like `something  copied from ami-xxxxx` so you can follow it back~~
 - new AMI in the destination account will have the same name as the source account AMI name `ami-xxxxx` so you can see that it is (effectively) the same AMI
 
 ## Things to be aware of / downsides:
