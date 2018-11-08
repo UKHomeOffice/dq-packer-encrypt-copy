@@ -28,19 +28,22 @@ docker run \
   -e aws_id=... \
   -e aws_key=... \
   -e filters="--owner 000000 --filters "Name=name,Values=something*"" \
-  UKHomeOffice/dp-packer-encrypt-copy
+  UKHomeOffice/dq-packer-encrypt-copy
 ```
 
 ### Drone
 ```yaml
   packer-copy-notprod:
-    image: UKHomeOffice/dp-packer-encrypt-copy
+    image: UKHomeOffice/dq-packer-encrypt-copy
     commands:
       - export region=eu-west-2
       - export filters="--owner 000000 --filters "Name=name,Values=something*""
-      - export aws_id=$${notprod_id}
-      - export aws_key=$${notprod_key}
+      - export aws_id=$${NOTPROD_ACC_ID}
+      - export aws_key=$${NOTPROD_ACC_KEY}
       - ./build.sh
+    secrets:
+        - NOTPROD_ACC_ID
+        - NOTPROD_ACC_KEY
     when:
       event: push
       branch: master
