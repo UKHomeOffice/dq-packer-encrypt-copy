@@ -12,7 +12,7 @@
 - packer makes an unencrypted AMI from that
 - packer makes an encrypted copy from that AMI
 - packer destroys the unencrypted AMI
-- new AMI in the destination account will have the same name as the source account AMI name `ami-xxxxx` so you can see that it is (effectively) the same AMI
+- new AMI in the destination account with a name like something copied from ami-xxxxx so you can follow it back
 
 ## Things to be aware of / downsides:
 - There is a chance that when packer starts the image, something happens that won't happen on subsequent boots or changes things (cloud-init maybe?) and you'll end up imaging an 'unsealed' image.
