@@ -3,7 +3,7 @@ FROM hashicorp/packer:light
 RUN apk add --no-cache --virtual .run-deps \
        python3 \
        py3-pip\
-    && rm -rf /var/cache/apk /root/.cache \
+    && rm -rf /var/cache/apk /root/.cache
 
 RUN adduser -D packer
 
