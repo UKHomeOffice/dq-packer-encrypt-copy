@@ -2,9 +2,10 @@ FROM hashicorp/packer:light
 
 RUN apk add --no-cache --virtual .run-deps \
        python3 \
-    && pip3 install awscli setuptools \
+       py3-pip\
     && rm -rf /var/cache/apk /root/.cache \
-    && adduser -D packer
+
+RUN adduser -D packer
 
 USER packer
 WORKDIR /home/packer
