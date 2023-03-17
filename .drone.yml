@@ -1,9 +1,71 @@
-pipeline:
+---
+kind: pipeline
+name: default
+type: kubernetes
 
-  build:
-    image: ukhomeoffice/drone-docker
-    repo: quay.io/ukhomeofficedigital/dq-packer-encrypt-copy
-    secrets: [ docker_username, docker_password ]
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: build
+  pull: if-not-exists
+  image: plugins/docker
+  settings:
+    dockerfile: Dockerfile
+    force_tag: true
     registry: quay.io
-    when:
-      event: push
+    repo: quay.io/ukhomeofficedigital/dq-packer-encrypt-copy
+    tags:
+    - ${DRONE_COMMIT_SHA}
+    - dev-${DRONE_BUILD_NUMBER}
+    cache_from: quay.io/ukhomeofficedigital/dq-packer-encrypt-copy:latest
+  environment:
+    DOCKER_PASSWORD:
+      from_secret: docker_password
+    DOCKER_USERNAME:
+      from_secret: docker_username
+  when:
+    branch:
+      exclude:
+      - master
+    event:
+    - push
+
+- name: trivy_scan
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/trivyscanner:master
+  commands:
+  - trivy image --ignore-unfixed --exit-code 0 --no-progress quay.io/ukhomeofficedigital/dq-packer-encrypt-copy:${DRONE_COMMIT_SHA}
+  when:
+    branch:
+      exclude:
+      - master
+    event:
+    - push
+
+- name: build-master
+  pull: if-not-exists
+  image: plugins/docker
+  settings:
+    dockerfile: Dockerfile
+    force_tag: true
+    registry: quay.io
+    repo: quay.io/ukhomeofficedigital/dq-packer-encrypt-copy
+    tags:
+    - latest
+    - b${DRONE_BUILD_NUMBER}
+    cache_from: quay.io/ukhomeofficedigital/dq-packer-encrypt-copy:latest
+  environment:
+    DOCKER_PASSWORD:
+      from_secret: docker_password
+    DOCKER_USERNAME:
+      from_secret: docker_username
+  when:
+    branch:
+    - master
+    event:
+    - promote
+    target:
+    - production
+
