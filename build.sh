@@ -19,4 +19,5 @@ export account=$(cat /tmp/build-account | awk -F "\t" '{{print $1}}')
 echo "Found AMI: (ID: <${ami_id}> Name: <${ami_name}> Created: <${created}>)."
 echo "Will now make an encrypted copy to account: <${account}>."
 
-packer --version build packer.json
+packer --version
+packer build packer.json
