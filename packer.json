@@ -6,6 +6,7 @@
     "ami_name": "{{env `ami_name`}}",
     "region": "{{env `region`}}"
   },
+  "sensitive-variables": ["access_key", "secret_key"],
   "builders": [
     {
       "type": "amazon-ebs",
