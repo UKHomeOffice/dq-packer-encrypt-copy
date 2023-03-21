@@ -8,7 +8,7 @@ export AWS_SECRET_ACCESS_KEY=${aws_key}
 
 $(aws ec2 describe-images --region ${region} ${filters} --query 'Images[*].[CreationDate, ImageId, Name]' --output text | sort -k1 | tail -n1 > /tmp/build)
 
-$(aws sts get-caller-identity --region ${region} --output text > /tmp/build-account)
+$(aws sts get-caller-identity --output text > /tmp/build-account)
 
 
 export created=$(cat /tmp/build | awk  -F "\t" '{{print $1}}')
