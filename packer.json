@@ -15,7 +15,7 @@
       "secret_key": "{{user `secret_key`}}",
       "region": "{{user `region`}}",
       "source_ami": "{{user `source_ami`}}",
-      "instance_type": "m6gd.large",
+      "instance_type": "r5d.large",
       "encrypt_boot": true,
       "user_data_file": "./scripts/reseal",
       "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}"
