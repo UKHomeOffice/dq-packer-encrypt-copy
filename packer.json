@@ -18,7 +18,7 @@
       "instance_type": "t2.medium",
       "encrypt_boot": true,
       "user_data_file": "./scripts/reseal",
-      "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}XXXX"
+      "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}XXXXX"
     }
   ]
 }
