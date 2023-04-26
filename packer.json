@@ -21,7 +21,8 @@
       "winrm_use_ssl": true,
       "winrm_insecure": true,
       "winrm_port": 5986,
-      "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}PROCOM"
+      "user_data_file": "./scripts/setupwrm.ps1",
+      "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}ProComSet"
     }
   ],
   "provisioners": [
