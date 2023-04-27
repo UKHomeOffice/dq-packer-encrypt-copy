@@ -22,7 +22,7 @@
       "winrm_insecure": true,
       "winrm_port": 5986,
       "user_data_file": "./scripts/setupwrm.ps1",
-      "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}ProComSet"
+      "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}ProComSetNoShut"
     }
   ],
   "provisioners": [
@@ -31,7 +31,7 @@
       "inline": [
       "Set-Location $env:programfiles/amazon/ec2launch",
       "./ec2launch.exe reset --clean --block",
-      "./ec2launch.exe sysprep --clean --block --shutdown"
+      "./ec2launch.exe sysprep --clean --block"
       ]
     }
   ]
