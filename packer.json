@@ -22,7 +22,7 @@
       "winrm_insecure": true,
       "winrm_port": 5986,
       "user_data_file": "./scripts/setupwrm.ps1",
-      "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}ProComSetNoShut"
+      "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}"
     }
   ],
   "provisioners": [
