@@ -1,8 +1,0 @@
-<powershell>
-# $EC2LaunchExe="C:\\Program Files\\Amazon\\EC2Launch\\EC2Launch.exe"
-$EC2LaunchExe="$ENV:ProgramFiles\Amazon\EC2Launch\EC2Launch.exe"
-
-# & $EC2LaunchExe reset --clean --block
-& $EC2LaunchExe sysprep --clean --block
-
-</powershell>

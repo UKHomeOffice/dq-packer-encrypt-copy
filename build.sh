@@ -2,6 +2,7 @@
 
 echo "region = ${region}"
 echo "filters = ${filters}"
+echo "os = ${os}"
 
 export AWS_ACCESS_KEY_ID=${aws_id}
 export AWS_SECRET_ACCESS_KEY=${aws_key}
@@ -20,4 +21,14 @@ echo "Found AMI: (ID: <${ami_id}> Name: <${ami_name}> Created: <${created}>)."
 echo "Will now make an encrypted copy to account: <${account}>."
 
 packer --version
-packer build packer.json
+if [ "${os}" == 'win2012' ]; then
+    packer_file="packer-ec2config.json"
+elif [ "${os}" == 'win2019' ]; then
+    packer_file="packer-winrm-ec2launch-v2.json"
+elif [ "${os}" == 'linux' ]; then
+    packer_file="packer.json"
+else
+  packer_file="packer.json"
+fi
+
+packer build ${packer_file}
