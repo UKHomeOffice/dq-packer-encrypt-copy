@@ -27,6 +27,7 @@ docker run \
   -e aws_id=... \
   -e aws_key=... \
   -e filters="--owner 000000 --filters "Name=name,Values=something*"" \
+  -e os="<OS TO BE COPIED>"
   UKHomeOffice/dq-packer-encrypt-copy
 ```
 
@@ -36,9 +37,10 @@ docker run \
     image: UKHomeOffice/dq-packer-encrypt-copy
     commands:
       - export region=eu-west-2
-      - export filters="--owner 000000 --filters "Name=name,Values=something*""
       - export aws_id=$${NOTPROD_ACC_ID}
       - export aws_key=$${NOTPROD_ACC_KEY}
+      - export filters="--owner 000000 --filters "Name=name,Values=something*""
+      - export os="<OS TO BE COPIED>"
       - ./build.sh
     secrets:
         - NOTPROD_ACC_ID
