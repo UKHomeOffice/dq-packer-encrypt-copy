@@ -17,6 +17,7 @@
       "instance_type": "t2.medium",
       "encrypt_boot": true,
       "communicator": "none",
+      "user_data_file": "./scripts/reseal-win2012",
       "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}"
     }
   ]
