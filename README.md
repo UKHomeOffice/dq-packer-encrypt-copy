@@ -17,6 +17,15 @@
 ## Things to be aware of / downsides:
 - There is a chance that when packer starts the image, something happens that won't happen on subsequent boots or changes things (cloud-init maybe?) and you'll end up imaging an 'unsealed' image.
 
+## Vulnerabilities
+We base our "encrypt-copy" image on Hashicorp's latest "Packer" Docker image. <br>
+However, their image is not updated very frequently (at time of writing it is 3 months old)
+therefore vulnerabilities will creep in. <br>
+We attempt to fix these by updating and upgrading the Alpine packages. <br>
+However, some (e.g. golang) do not appear to be resolvable so they are added to the `.trivyignore` file. <br>
+These counter-measures (added packages and ignorefile) should be revisited every month 
+when our routine vulnerability process is run.
+
 ## Usage:
 
 ### Docker
