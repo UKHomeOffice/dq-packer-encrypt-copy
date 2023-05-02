@@ -1,9 +1,12 @@
 FROM hashicorp/packer:light
 
-RUN apk upgrade \
+RUN apk update \
+    && apk upgrade \
     && apk add --no-cache --virtual .run-deps \
        python3 \
        py3-pip\
+       git \
+       openssh \
     && pip3 install awscli setuptools \
     && rm -rf /var/cache/apk /root/.cache
 
