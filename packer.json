@@ -4,7 +4,10 @@
     "secret_key": "{{env `aws_key`}}",
     "source_ami": "{{env `ami_id`}}",
     "ami_name": "{{env `ami_name`}}",
-    "region": "{{env `region`}}"
+    "region": "{{env `region`}}",
+    "drone_build_number": "{{env `DRONE_BUILD_NUMBER`}}",
+    "drone_repo_name": "{{env `DRONE_REPO_NAME`}}"
+
   },
   "sensitive-variables": ["access_key", "secret_key"],
   "builders": [
@@ -17,6 +20,9 @@
       "instance_type": "t2.medium",
       "encrypt_boot": true,
       "communicator": "none",
+      "run_tags":{
+            "Name": "Packer Build [{{user `drone_repo_name`}}: {{user `drone_build_number`}}]"
+      },
       "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}"
     }
   ]
