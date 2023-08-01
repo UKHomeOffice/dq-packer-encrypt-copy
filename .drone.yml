@@ -89,7 +89,8 @@ steps:
   image: *acp-docker-image
   commands:
     - docker login --username=$${DOCKER_USERNAME} --password=$${DOCKER_PASSWORD} quay.io
-    - docker tag dq-packer-encrypt-copy:b-$${DRONE_BUILD_NUMBER} quay.io/ukhomeofficedigital/dq-packer-encrypt-copy:latest
+    - docker pull quay.io/ukhomeofficedigital/dq-packer-encrypt-copy:b-$${DRONE_BUILD_PARENT}
+    - docker tag quay.io/ukhomeofficedigital/dq-packer-encrypt-copy:b-$${DRONE_BUILD_NUMBER} quay.io/ukhomeofficedigital/dq-packer-encrypt-copy:latest
     - docker push quay.io/ukhomeofficedigital/dq-packer-encrypt-copy:latest
   environment:
     DOCKER_PASSWORD:
