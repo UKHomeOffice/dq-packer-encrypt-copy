@@ -15,6 +15,11 @@
       "region": "{{user `region`}}",
       "source_ami": "{{user `source_ami`}}",
       "instance_type": "t2.medium",
+      "metadata_options": {
+        "http_endpoint": "enabled",
+        "http_tokens": "required",
+        "http_put_response_hop_limit": 1
+      },
       "encrypt_boot": true,
       "communicator": "none",
       "user_data_file": "./scripts/reseal-win2012",
