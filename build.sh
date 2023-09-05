@@ -20,7 +20,6 @@ export account=$(cat /tmp/build-account | awk -F "\t" '{{print $1}}')
 echo "Found AMI: (ID: <${ami_id}> Name: <${ami_name}> Created: <${created}>)."
 echo "Will now make an encrypted copy to account: <${account}>."
 
-$(aws ec2 modify-image-attribute --image-id ${ami_id} --imds-support v2.0)
 
 packer --version
 if [ "${os}" == 'win2012' ]; then
