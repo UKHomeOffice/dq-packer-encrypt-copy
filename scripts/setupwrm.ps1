@@ -4,7 +4,7 @@ write-output "Running User Data Script"
 write-host "(host) Running User Data Script"
 
 # Create username and password
-wmic useraccount where "name='Administrator'" set PasswordExpires=FALSE
+wmic useraccount where "name='dqsupport'" set PasswordExpires=FALSE
 
 
 Set-ExecutionPolicy Unrestricted -Scope LocalMachine -Force -ErrorAction Ignore
