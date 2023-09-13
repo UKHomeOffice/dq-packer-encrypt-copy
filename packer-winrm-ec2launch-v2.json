@@ -16,10 +16,6 @@
       "source_ami": "{{user `source_ami`}}",
       "instance_type": "t2.medium",
       "encrypt_boot": true,
-      "metadata_options": {
-        "http_endpoint": "enabled",
-        "http_tokens": "required",
-        "http_put_response_hop_limit": 1
       },
       "communicator": "winrm",
       "winrm_username": "Administrator",
