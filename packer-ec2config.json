@@ -15,7 +15,6 @@
       "region": "{{user `region`}}",
       "source_ami": "{{user `source_ami`}}",
       "instance_type": "t2.medium",
-      },
       "encrypt_boot": true,
       "communicator": "none",
       "user_data_file": "./scripts/reseal-win2012",
