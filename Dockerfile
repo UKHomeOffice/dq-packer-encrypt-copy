@@ -6,7 +6,7 @@ RUN apk update \
        python3 \
        py3-pip\
        git \
-       openssh \
+       openssh
 # Create and activate virtual environment, then install pipx, awscli & setuptools
 RUN python3 -m venv /opt/venv \
     && /opt/venv/bin/pip install pipx awscli setuptools \
