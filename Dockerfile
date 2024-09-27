@@ -7,7 +7,9 @@ RUN apk update \
        py3-pip\
        git \
        openssh \
-    && pip3 install awscli setuptools \
+# Create and activate virtual environment, then install pipx, awscli & setuptools
+RUN python3 -m venv /opt/venv \
+    && /opt/venv/bin/pip install pipx awscli setuptools \
     && rm -rf /var/cache/apk /root/.cache
 
 RUN adduser -D packer
