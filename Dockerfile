@@ -7,8 +7,9 @@ RUN apk update \
        py3-pip\
        git \
        openssh \
-    && pip install --no-cache-dir --upgrade pip setuptools \
-    && pip install --no-cache-dir awscli   
+       aws-cli
+    # && pip install --no-cache-dir --upgrade pip setuptools \
+    # && pip install --no-cache-dir awscli   
 
 RUN adduser -D packer
 
