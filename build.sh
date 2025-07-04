@@ -32,4 +32,8 @@ else
   packer_file="packer.json"
 fi
 
+echo "Installing required plugins before build"
+
+packer plugins install github.com/hashicorp/amazon
+
 packer build ${packer_file}
