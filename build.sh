@@ -37,3 +37,5 @@ echo "Installing required plugins before build"
 packer plugins install github.com/hashicorp/amazon
 
 packer build ${packer_file}
+
+./copy-ami-to-prod.sh "${ami_id}" "337779336338" "${region}"
