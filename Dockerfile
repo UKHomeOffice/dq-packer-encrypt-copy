@@ -18,6 +18,7 @@ WORKDIR /home/packer
 
 COPY packer*.json ./
 COPY build.sh ./
+COPY copy-ami-to-prod.sh ./
 COPY scripts scripts/
 
 ENTRYPOINT
