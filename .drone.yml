@@ -88,6 +88,7 @@ steps:
   pull: if-not-exists
   image: *acp-docker-image
   commands:
+    - /usr/local/bin/wait
     - docker login --username=$${DOCKER_USERNAME} --password=$${DOCKER_PASSWORD} quay.io
     - docker pull quay.io/ukhomeofficedigital/dq-packer-encrypt-copy:b-$${DRONE_BUILD_PARENT}
     - docker tag quay.io/ukhomeofficedigital/dq-packer-encrypt-copy:b-$${DRONE_BUILD_PARENT} quay.io/ukhomeofficedigital/dq-packer-encrypt-copy:latest
