@@ -38,8 +38,4 @@ packer plugins install github.com/hashicorp/amazon
 
 packer build ${packer_file}
 
-echo "Current directory: $(pwd)" #Print the current directory in the script
-
-ls -l ./copy-ami-to-prod.sh
-
 ./copy-ami-to-prod.sh "${ami_id}" "337779336338" "${region}"
