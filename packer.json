@@ -23,7 +23,8 @@
       "run_tags":{
             "Name": "Packer Build [{{user `drone_repo_name`}}: {{user `drone_build_number`}}]"
       },
-      "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}"
+      "ami_name": "{{user `ami_name`}} copied from {{user `source_ami`}}",
+      "temporary_security_group_source_public_ip": true
     }
   ]
 }
