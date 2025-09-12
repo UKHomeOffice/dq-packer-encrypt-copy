@@ -5,6 +5,7 @@
     "source_ami": "{{env `ami_id`}}",
     "ami_name": "{{env `ami_name`}}",
     "region": "{{env `region`}}",
+    "kms_key_id": "{{env `CI_KMS_KEY_ID`}}",
     "drone_build_number": "{{env `DRONE_BUILD_NUMBER`}}",
     "drone_repo_name": "{{env `DRONE_REPO_NAME`}}"
 
@@ -18,6 +19,7 @@
       "region": "{{user `region`}}",
       "source_ami": "{{user `source_ami`}}",
       "instance_type": "t2.medium",
+      "kms_key_id": "{{user `kms_key_id`}}",
       "encrypt_boot": true,
       "communicator": "none",
       "run_tags":{
