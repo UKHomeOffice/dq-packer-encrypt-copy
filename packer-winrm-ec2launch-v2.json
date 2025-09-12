@@ -4,7 +4,6 @@
     "secret_key": "{{env `aws_key`}}",
     "source_ami": "{{env `ami_id`}}",
     "ami_name": "{{env `ami_name`}}",
-    "kms_key_id": "{{env `CI_KMS_KEY_ID`}}",
     "region": "{{env `region`}}"
   },
   "sensitive-variables": ["access_key", "secret_key"],
@@ -16,7 +15,6 @@
       "region": "{{user `region`}}",
       "source_ami": "{{user `source_ami`}}",
       "instance_type": "t2.medium",
-      "kms_key_id": "{{user `kms_key_id`}}",
       "encrypt_boot": true,  
       "communicator": "winrm",
       "winrm_username": "Administrator",
