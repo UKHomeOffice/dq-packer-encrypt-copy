@@ -7,7 +7,9 @@ RUN apk update \
        py3-pip\
        git \
        openssh \
-       aws-cli
+       aws-cli \
+    && apk del gnupg gnupg-dirmngr gnupg-gpgconf gnupg-keyboxd gnupg-utils \
+              gnupg-wks-client gpg gpg-agent gpg-wks-server gpgsm gpgv || true 
     # && pip install --no-cache-dir --upgrade pip setuptools \
     # && pip install --no-cache-dir awscli   
 
